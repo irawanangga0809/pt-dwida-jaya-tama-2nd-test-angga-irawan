@@ -13,8 +13,8 @@ Route::post('/login', [AuthApiController::class, 'login']);
 
 // Route CRUD Api Proyek dengan Autentikasi
 Route::middleware(['jwt.auth'])->group(function () {
-    Route::get('/projects', [ProjectApiController::class, 'showAll']); // Semua proyek muncul
-    Route::get('/projectsLogin', [ProjectApiController::class, 'showByLoginUser']); // Hanya memunculkan proyek yang dikerjakan oleh user yang sedang login
+    Route::get('/projects', [ProjectApiController::class, 'showByLoginUser']); // Hanya memunculkan proyek yang dikerjakan oleh user yang sedang login
+    Route::get('/projectsAll', [ProjectApiController::class, 'showAll']); // Semua proyek muncul 
     Route::post('/projects', [ProjectApiController::class, 'store']);
     Route::put('/projects/{id}', [ProjectApiController::class, 'update']);
     Route::delete('/projects/{id}', [ProjectApiController::class, 'delete']);
